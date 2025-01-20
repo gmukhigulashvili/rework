@@ -37,7 +37,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: thelittledevops/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
             type=sha,format=short
@@ -49,5 +49,5 @@ jobs:
           push: true
           tags: |
             ${{ steps.meta.outputs.tags }}
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.REGISTRY }}/thelittledevops:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }} 
